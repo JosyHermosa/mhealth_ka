@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">My Klinik Adnin</string>
+    <string name="my_klinik_adnin">My Klinik Adnin</string>
+    <string name="UserEmail">Email</string>
+    <string name="UserPassword">Password</string>
+    <string name="SignUp">Dont Have Account? Sign Up Here</string>
+</resources>

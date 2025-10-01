@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottom_navigation"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Search Bar -->
+            <AutoCompleteTextView
+                android:id="@+id/searchDoctor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Search doctor by name"
+                android:drawableStart="@android:drawable/ic_menu_search"
+                android:padding="12dp"
+                android:background="@android:drawable/edit_text"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Calendar -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select Appointment Date"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_marginBottom="8dp"/>
+
+            <CalendarView
+                android:id="@+id/calendarView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:id="@+id/upcomingAppointmentText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="No upcoming appointments"
+                android:textStyle="italic"
+                android:layout_marginBottom="16dp"/>
+
+
+            <!-- Time Slots -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Available Time Slots"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_marginBottom="8dp"/>
+
+            <GridLayout
+                android:id="@+id/timeSlotsGrid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="3"
+                android:useDefaultMargins="true">
+
+                <!-- Example time slots -->
+                <Button
+                    android:id="@+id/btn9am"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="9:00 AM"/>
+
+                <Button
+                    android:id="@+id/btn10am"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10:00 AM"/>
+
+                <Button
+                    android:id="@+id/btn11am"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="11:00 AM"/>
+
+                <Button
+                    android:id="@+id/btn12pm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="12:00 PM"/>
+
+                <Button
+                    android:id="@+id/btn1pm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1:00 PM"/>
+
+                <Button
+                    android:id="@+id/btn2pm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2:00 PM"/>
+
+                <Button
+                    android:id="@+id/btn3pm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3:00 PM"/>
+
+                <Button
+                    android:id="@+id/btn4pm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4:00 PM"/>
+
+                <Button
+                    android:id="@+id/btn5pm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5:00 PM"/>
+            </GridLayout>
+
+            <Button
+                android:id="@+id/btnSaveAppointment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Confirm Appointment"
+                android:layout_marginTop="24dp"
+                android:textColor="@android:color/white"/>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Bottom Navigation -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="?android:attr/windowBackground"
+        app:menu="@menu/bottom_nav_menu"
+        app:labelVisibilityMode="labeled"/>
+</RelativeLayout>

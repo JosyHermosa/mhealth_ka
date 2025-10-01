@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "761649010301",
+    "project_id": "my-klinik-adnin",
+    "storage_bucket": "my-klinik-adnin.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:761649010301:android:c16036f1b90bdb8c55c314",
+        "android_client_info": {
+          "package_name": "com.example.myklinikadnin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-cV6HmnI-P_snX8gWak_SQCx7pXonpPQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

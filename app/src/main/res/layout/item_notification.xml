@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    android:padding="12dp"
+
+    android:elevation="4dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <TextView
+            android:id="@+id/textNotifTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Notification Title"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/textNotifMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Notification message goes here."
+            android:textSize="14sp"
+            android:paddingTop="4dp"/>
+
+        <TextView
+            android:id="@+id/textNotifDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12/9/2025 10:00 AM"
+            android:textSize="12sp"
+            android:textColor="#888888"
+            android:paddingTop="4dp"/>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

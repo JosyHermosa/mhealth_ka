@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:padding="12dp"
+    android:elevation="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Always visible -->
+        <TextView
+            android:id="@+id/textName"
+            android:text="Name"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/textEmail"
+            android:text="Email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/textPhone"
+            android:text="Phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!-- Expanded -->
+        <LinearLayout
+            android:id="@+id/detailsLayout"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp">
+
+            <TextView android:id="@+id/textNric" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <TextView android:id="@+id/textBloodType" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <TextView android:id="@+id/textBloodPressure" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <TextView android:id="@+id/textHeight" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <TextView android:id="@+id/textWeight" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
