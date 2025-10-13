@@ -7,6 +7,7 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myklinikadnin.R
 import com.example.myklinikadnin.ui.NotificationsActivity
+import com.example.myklinikadnin.ui.auth.LoginActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
@@ -25,6 +26,7 @@ class StaffProfileActivity : AppCompatActivity() {
     private lateinit var etConfirmPassword: EditText
     private lateinit var btnSavePassword: Button
     private lateinit var btnSaveProfile: Button
+    private lateinit var btnLogOut: Button
 
     private lateinit var auth: FirebaseAuth
     private lateinit var db: FirebaseFirestore
@@ -41,6 +43,7 @@ class StaffProfileActivity : AppCompatActivity() {
         etEmail = findViewById(R.id.etEmail)
         etNric = findViewById(R.id.etNric)
         etPhone = findViewById(R.id.etPhone)
+        btnLogOut = findViewById(R.id.btnLogOut)
 
         // Bind password form
         changePasswordForm = findViewById(R.id.changePasswordForm)
@@ -59,6 +62,7 @@ class StaffProfileActivity : AppCompatActivity() {
 
         btnSavePassword.setOnClickListener { changePassword() }
         btnSaveProfile.setOnClickListener { saveProfile() }
+        btnLogOut.setOnClickListener { logOutAccount() }
 
         loadProfile()
         setupBottomNav()
@@ -147,5 +151,11 @@ class StaffProfileActivity : AppCompatActivity() {
                 else -> false
             }
         }
+    }
+
+    private fun logOutAccount() {
+        auth.signOut()
+        startActivity(Intent(this, LoginActivity::class.java))
+        finish()
     }
 }

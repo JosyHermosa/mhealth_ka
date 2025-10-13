@@ -31,6 +31,9 @@ class LoginActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         db = FirebaseFirestore.getInstance()
 
+        // NEW: Check if user is already logged in (AUTO-LOGIN)
+        checkIfUserLoggedIn()
+
         // Bind views
         emailEditText = findViewById(R.id.editTextTextEmailAddress)
         passwordEditText = findViewById(R.id.editTextTextPassword)
@@ -87,6 +90,36 @@ class LoginActivity : AppCompatActivity() {
         signUpText.setOnClickListener {
             val intent = Intent(this, SignupActivity::class.java)
             startActivity(intent)
+        }
+    }
+
+    // NEW: AUTO-LOGIN function - Check if user is already logged in
+    private fun checkIfUserLoggedIn() {
+        val currentUser = auth.currentUser
+
+        if (currentUser != null) {
+            // User is already logged in, fetch their role
+            val userId = currentUser.uid
+            db.collection("users").document(userId).get()
+                .addOnSuccessListener { doc ->
+                    if (doc.exists()) {
+                        val role = doc.getString("role")
+
+                        when (role) {
+                            "Patient" -> {
+                                startActivity(Intent(this, MainActivity::class.java))
+                                finish()
+                            }
+                            "Doctor", "Nurse" -> {
+                                startActivity(Intent(this, StaffDashboardActivity::class.java))
+                                finish()
+                            }
+                        }
+                    }
+                }
+                .addOnFailureListener {
+                    // If error fetching role, just stay on login screen
+                }
         }
     }
 }

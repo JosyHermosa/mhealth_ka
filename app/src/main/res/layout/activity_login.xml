@@ -17,7 +17,8 @@
         android:text="@string/my_klinik_adnin"
         android:gravity="center"
         android:textStyle="bold"
-        android:textSize="28sp" />
+        android:textSize="28sp"
+        android:layout_marginBottom="80dp"/>
 
     <EditText
         android:id="@+id/editTextTextEmailAddress"
@@ -52,5 +53,6 @@
         android:clickable="true"
         android:focusable="true"
         android:textColor="@android:color/holo_blue_dark"
-        android:padding="8dp" />
+        android:padding="8dp"
+        android:layout_marginBottom="100dp" />
 </LinearLayout>

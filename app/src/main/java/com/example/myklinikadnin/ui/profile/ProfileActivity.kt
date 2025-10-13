@@ -27,6 +27,7 @@ class ProfileActivity : AppCompatActivity() {
     private lateinit var tvBmi: TextView
     private lateinit var spinnerBloodType: Spinner
     private lateinit var etBloodPressure: EditText
+    private lateinit var vtBloodPressure: TextView
     private lateinit var btnSave: Button
     private lateinit var btnLogOut: Button
 
@@ -52,6 +53,7 @@ class ProfileActivity : AppCompatActivity() {
         tvBmi = findViewById(R.id.tvBmi)
         spinnerBloodType = findViewById(R.id.spinnerBloodType)
         etBloodPressure = findViewById(R.id.etBloodPressure)
+        vtBloodPressure = findViewById(R.id.vtBloodPressure)
         btnSave = findViewById(R.id.btnSaveProfile)
         btnLogOut = findViewById(R.id.btnLogOut)
 
@@ -111,7 +113,13 @@ class ProfileActivity : AppCompatActivity() {
                         userRole = doc.getString("role")
 
                         // Enable/disable blood pressure input
-                        etBloodPressure.isEnabled = (userRole == "Doctor" || userRole == "Nurse")
+                        if (userRole == "Doctor" || userRole == "Nurse") {
+                            vtBloodPressure.visibility = TextView.GONE
+                            etBloodPressure.visibility = EditText.VISIBLE
+                        } else {
+                            vtBloodPressure.visibility = TextView.VISIBLE
+                            etBloodPressure.visibility = EditText.GONE
+                        }
 
                         // Set blood type in spinner
                         val bloodType = doc.getString("bloodType")
