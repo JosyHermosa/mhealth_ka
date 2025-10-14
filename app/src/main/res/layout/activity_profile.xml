@@ -129,9 +129,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Blood Pressure: Not set"
-                        android:textSize="18dp"
                         android:padding="10dp"
-                        android:visibility="visible"/> <!-- visible for patients -->
+                        android:textSize="18dp"
+                        android:visibility="gone" /> <!-- visible for patients -->
 
                     <!-- For Doctor/Nurse -->
                     <EditText
