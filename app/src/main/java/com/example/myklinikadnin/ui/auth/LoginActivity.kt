@@ -93,7 +93,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    // NEW: AUTO-LOGIN function - Check if user is already logged in
+    // AUTO-LOGIN function - Check if user is already logged in
     private fun checkIfUserLoggedIn() {
         val currentUser = auth.currentUser
 

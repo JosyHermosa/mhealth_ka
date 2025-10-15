@@ -26,8 +26,8 @@ class ProfileActivity : AppCompatActivity() {
     private lateinit var etWeight: EditText
     private lateinit var tvBmi: TextView
     private lateinit var spinnerBloodType: Spinner
-    private lateinit var etBloodPressure: EditText
-    private lateinit var vtBloodPressure: TextView
+    //private lateinit var etBloodPressure: EditText
+    //private lateinit var vtBloodPressure: TextView
     private lateinit var btnSave: Button
     private lateinit var btnLogOut: Button
 
@@ -52,8 +52,8 @@ class ProfileActivity : AppCompatActivity() {
         etWeight = findViewById(R.id.etWeight)
         tvBmi = findViewById(R.id.tvBmi)
         spinnerBloodType = findViewById(R.id.spinnerBloodType)
-        etBloodPressure = findViewById(R.id.etBloodPressure)
-        vtBloodPressure = findViewById(R.id.vtBloodPressure)
+        //etBloodPressure = findViewById(R.id.etBloodPressure)
+        //vtBloodPressure = findViewById(R.id.vtBloodPressure)
         btnSave = findViewById(R.id.btnSaveProfile)
         btnLogOut = findViewById(R.id.btnLogOut)
 
@@ -109,17 +109,17 @@ class ProfileActivity : AppCompatActivity() {
 
                         etHeight.setText(doc.getDouble("height")?.toString() ?: "")
                         etWeight.setText(doc.getDouble("weight")?.toString() ?: "")
-                        etBloodPressure.setText(doc.getString("bloodPressure") ?: "")
+                        //etBloodPressure.setText(doc.getString("bloodPressure") ?: "")
                         userRole = doc.getString("role")
 
                         // Enable/disable blood pressure input
-                        if (userRole == "Doctor" || userRole == "Nurse") {
-                            vtBloodPressure.visibility = TextView.GONE
-                            etBloodPressure.visibility = EditText.VISIBLE
-                        } else {
-                            vtBloodPressure.visibility = TextView.VISIBLE
-                            etBloodPressure.visibility = EditText.GONE
-                        }
+                        //if (userRole == "Doctor" || userRole == "Nurse") {
+                        //    vtBloodPressure.visibility = TextView.GONE
+                            //etBloodPressure.visibility = EditText.VISIBLE
+                       // } else {
+                       //     vtBloodPressure.visibility = TextView.VISIBLE
+                            //etBloodPressure.visibility = EditText.GONE
+                        //}
 
                         // Set blood type in spinner
                         val bloodType = doc.getString("bloodType")
@@ -157,15 +157,15 @@ class ProfileActivity : AppCompatActivity() {
         val height = etHeight.text.toString().toDoubleOrNull()
         val weight = etWeight.text.toString().toDoubleOrNull()
         val bloodType = if (spinnerBloodType.selectedItemPosition > 0) spinnerBloodType.selectedItem.toString() else null
-        val bloodPressure = etBloodPressure.text.toString()
+        //val bloodPressure = etBloodPressure.text.toString()
 
         val updates = hashMapOf<String, Any>()
         if (height != null) updates["height"] = height
         if (weight != null) updates["weight"] = weight
         if (bloodType != null) updates["bloodType"] = bloodType
-        if (userRole == "Doctor" || userRole == "Nurse") {
-            if (bloodPressure.isNotEmpty()) updates["bloodPressure"] = bloodPressure
-        }
+       // if (userRole == "Doctor" || userRole == "Nurse") {
+        //    if (bloodPressure.isNotEmpty()) updates["bloodPressure"] = bloodPressure
+       // }
 
         userId?.let { uid ->
             db.collection("users").document(uid).update(updates)

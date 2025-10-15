@@ -123,17 +123,17 @@
                         android:padding="8dp"
                         android:layout_marginBottom="12dp"/>
 
-                    <!-- For Patient -->
-                    <TextView
+                    <!-- For Patient
+                   <TextView
                         android:id="@+id/vtBloodPressure"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Blood Pressure: Not set"
                         android:padding="10dp"
                         android:textSize="18dp"
-                        android:visibility="gone" /> <!-- visible for patients -->
+                        android:visibility="gone" />  visible for patients -->
 
-                    <!-- For Doctor/Nurse -->
+                    <!-- For Doctor/Nurse (REDUNDANT)
                     <EditText
                         android:id="@+id/etBloodPressure"
                         android:layout_width="match_parent"
@@ -142,7 +142,7 @@
                         android:inputType="text"
                         android:background="@android:drawable/edit_text"
                         android:padding="10dp"
-                        android:visibility="gone"/> <!-- invisible for patients -->
+                        android:visibility="gone"/>  invisible for patients -->
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
